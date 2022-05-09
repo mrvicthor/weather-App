@@ -5,6 +5,7 @@ import PropTypes from "prop-types";
 import { FiEdit2 } from "react-icons/fi";
 import SimpleBar from "simplebar-react";
 
+// utility function to merge multiple refs
 const mergeRefs = (...refs) => {
   const filteredRefs = refs.filter(Boolean);
   if (!filteredRefs.length) return null;
@@ -43,8 +44,8 @@ const AutoComplete = forwardRef(
     const [query, setQuery] = useState("");
     const inputRef = useRef(null);
 
+    // Debounce function
     useEffect(() => {
-      // Debounce
       if (timeout.current) clearTimeout(timeout.current);
       timeout.current = setTimeout(() => {
         onSearch(query);

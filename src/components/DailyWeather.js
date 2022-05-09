@@ -1,4 +1,5 @@
 const DailyWeather = ({ day, key }) => {
+  // get day function
   const getDay = () => {
     const newDay = new Intl.DateTimeFormat("en-GB", { weekday: "long" }).format(
       new Date(day.dt * 1000)
@@ -6,6 +7,7 @@ const DailyWeather = ({ day, key }) => {
     return newDay;
   };
 
+  // get date and month function
   const getDate = () => {
     const date = new Date(day.dt * 1000);
     const currentDay = date.getDate();

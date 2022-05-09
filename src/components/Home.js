@@ -25,11 +25,12 @@ const Home = () => {
   const [dataLoading, setDataLoading] = useState(false);
   const [error, setError] = useState(null);
   const { results, handleChange, handleSearch, handleSelect, selected } =
+    // autocomplete triggered for every user input
     useAutoComplete({
       onSearch: async (q) => {
         setIsLoading(true);
         const placesResult = await fetch(
-          `http://api.openweathermap.org/geo/1.0/direct?q=${q}&limit=5&appid=${API_KEY}`
+          `https://api.openweathermap.org/geo/1.0/direct?q=${q}&limit=5&appid=${API_KEY}`
         );
         const placesJson = await placesResult.json();
         setIsLoading(false);
@@ -43,6 +44,7 @@ const Home = () => {
       },
     });
 
+  // fetch  daily weather data api
   useEffect(() => {
     if (!selected) return;
     const fetchDailyForecast = async () => {
@@ -86,6 +88,7 @@ const Home = () => {
     };
 
     fetchDailyForecast().catch((error) => {
+      // check for error
       setError(error.message);
       setIsLoading(false);
     });
