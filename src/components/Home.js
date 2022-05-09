@@ -30,7 +30,7 @@ const Home = () => {
       onSearch: async (q) => {
         setIsLoading(true);
         const placesResult = await fetch(
-          `https://api.openweathermap.org/geo/1.0/direct?q=${q}&limit=5&appid=${API_KEY}`
+          `http://api.openweathermap.org/geo/1.0/direct?q=${q}&limit=5&appid=${API_KEY}`
         );
         const placesJson = await placesResult.json();
         setIsLoading(false);
