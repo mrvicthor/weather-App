@@ -157,7 +157,7 @@ const Home = () => {
       )}
       <div className="my-10 space-y-2  rounded">
         {days.map((day, index) => (
-          <DailyWeather key={index} day={day} />
+          <DailyWeather key={index} day={day} index={index} />
         ))}
       </div>
     </div>

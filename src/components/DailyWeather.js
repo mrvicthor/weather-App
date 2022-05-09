@@ -1,4 +1,4 @@
-const DailyWeather = ({ day, key }) => {
+const DailyWeather = ({ day, index }) => {
   // get day function
   const getDay = () => {
     const newDay = new Intl.DateTimeFormat("en-GB", { weekday: "long" }).format(
@@ -19,7 +19,7 @@ const DailyWeather = ({ day, key }) => {
   };
   const baseUrl = `http://openweathermap.org/img/w/${day.weather[0].icon}`;
   return (
-    <div className="flex justify-between items-center px-2 py-2" key={key}>
+    <div className="flex justify-between items-center px-2 py-2" key={index}>
       <div>
         <h4 className="text-white text-xl">{getDay()}</h4>
         <p className="text-[#042C5C]">{getDate()}</p>
